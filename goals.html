@@ -484,9 +484,9 @@ html,body{height:100%;overflow:hidden;background:var(--cream);color:var(--text);
   <div class="big" style="font-size:clamp(28px,4.5vw,56px);letter-spacing:-1.5px;line-height:1.1">Six steps. Same every time.</div>
   <ol class="step-list" style="margin-top:20px">
     <li>In Ads Manager, click <strong>Create</strong> (top left) → choose campaign objective <strong>Sales</strong>.</li>
-    <li>Name the campaign clearly — <code>[Brand] · [Angle] · [Date]</code>. Example: <code>Lem · POV-Reel · May14</code>.</li>
-    <li>Set the budget at the <strong>ad set</strong> level (CBO off for now). Daily budget = your team's spend goal ÷ number of ad sets.</li>
-    <li>Pick audience: <strong>broad</strong> by default (Meta's algorithm finds the buyer). Only narrow if you have a clear reason.</li>
+    <li>Name the campaign using the convention on the next slide. <strong>If a campaign already exists for your brand, follow its existing name pattern</strong> — don't invent a new one. Unsure? Ask your scaler or Momo.</li>
+    <li>Use <strong>CBO</strong> (Campaign Budget Optimization) — set budget at the <strong>campaign</strong> level. Then create <strong>one ad set per concept</strong> (one angle, one theme per ad set).</li>
+    <li>Audience: see next slide — different countries per brand category.</li>
     <li>Upload creative — image (1:1 or 4:5) or video (9:16 vertical for Reels, 1:1 for feed). Add primary text, headline, description, destination URL.</li>
     <li>Hit <strong>Publish</strong>. Watch performance for 24-48 hours before judging.</li>
   </ol>
@@ -494,7 +494,45 @@ html,body{height:100%;overflow:hidden;background:var(--cream);color:var(--text);
 </div>
 </div>
 
-<!-- ============ 17 · HOW TO KNOW WHICH AD IS GOOD ============ -->
+<!-- ============ 17 · CAMPAIGN SETUP RULES ============ -->
+<div class="slide cream-bg" data-label="Campaign Rules">
+<div class="slide-inner">
+  <div class="pink-banner">Campaign Setup Rules</div>
+  <div class="big" style="font-size:clamp(26px,4vw,48px);letter-spacing:-1.2px;line-height:1.1">Naming. Structure. Country.</div>
+  <div class="body" style="margin-top:10px;max-width:920px">Three rules every campaign follows. Get them wrong and the data is unreadable, the spend is wrong, or the audience is wrong. Get them right and the team can scale together.</div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:24px">
+    <div style="background:#fff;padding:22px 24px;border-radius:10px;border-top:6px solid var(--pink)">
+      <div style="font-size:11px;letter-spacing:2.5px;font-weight:800;color:var(--pink);text-transform:uppercase">Rule 1 · Naming</div>
+      <div class="medium" style="font-size:20px;margin-top:6px;line-height:1.3">Follow existing if it exists.</div>
+      <div class="body" style="margin-top:8px;font-size:14px">If a campaign is already running for your brand, <strong>match its naming convention exactly</strong>. Don't invent a new one. Unsure? Ask your scaler or Momo before you ship.</div>
+      <div style="font-size:12px;letter-spacing:2px;font-weight:800;color:var(--pink);text-transform:uppercase;margin-top:14px">New campaign? Use this format:</div>
+      <div style="background:rgba(255,42,142,0.06);border-left:4px solid var(--pink);padding:12px 14px;margin-top:8px;border-radius:4px;font-family:'SF Mono',Menlo,Consolas,monospace;font-size:12.5px;color:var(--pink-deep);line-height:1.5;word-break:break-word">AdAccount_LandingPage_Country_Date</div>
+      <div class="body" style="margin-top:8px;font-size:13px">Example: <code style="background:rgba(255,42,142,0.08);padding:2px 6px;border-radius:3px;font-family:'SF Mono',Menlo,Consolas,monospace;font-size:12px;color:var(--pink-deep)">HelloNancy_Zenify_Top15_2026-05-14</code></div>
+    </div>
+
+    <div style="background:#fff;padding:22px 24px;border-radius:10px;border-top:6px solid var(--pink)">
+      <div style="font-size:11px;letter-spacing:2.5px;font-weight:800;color:var(--pink);text-transform:uppercase">Rule 2 · Structure</div>
+      <div class="medium" style="font-size:20px;margin-top:6px;line-height:1.3">CBO + one ad set per concept.</div>
+      <div class="body" style="margin-top:8px;font-size:14px"><strong>Campaign Budget Optimization (CBO)</strong> on. Set the budget at the campaign level — Meta allocates spend across ad sets automatically based on performance.</div>
+      <div class="body" style="margin-top:8px;font-size:14px"><strong>One ad set per concept.</strong> Each ad set holds one angle / one creative theme. Inside the ad set, run 2-3 variations of that concept.</div>
+      <div style="background:rgba(204,226,69,0.18);border-left:4px solid var(--chartreuse);padding:10px 14px;margin-top:12px;border-radius:4px;font-size:12.5px;color:var(--text);line-height:1.45"><strong style="color:#5A6A10">Why CBO:</strong> simpler to manage, Meta finds the winning ad set faster, you don't waste mental cycles re-balancing budgets manually.</div>
+    </div>
+  </div>
+
+  <div style="background:#fff;padding:22px 28px;border-radius:10px;margin-top:18px;border-left:6px solid var(--pink)">
+    <div style="font-size:11px;letter-spacing:2.5px;font-weight:800;color:var(--pink);text-transform:uppercase">Rule 3 · Country targeting</div>
+    <div class="medium" style="font-size:20px;margin-top:6px;line-height:1.3">Different per brand category.</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px">
+      <div style="background:var(--pink-soft);padding:14px 16px;border-radius:6px"><div style="font-size:11px;letter-spacing:1.5px;font-weight:800;color:var(--pink-deep);text-transform:uppercase">Sex toy brands</div><div style="font-size:14px;font-weight:900;margin-top:4px;color:var(--text);line-height:1.3">Top 15 countries</div><div style="font-size:12px;color:var(--text);margin-top:4px;line-height:1.4">Hello Nancy, Biird, Nancy Finds, Sora, Nancy Universe</div></div>
+      <div style="background:var(--pink-soft);padding:14px 16px;border-radius:6px"><div style="font-size:11px;letter-spacing:1.5px;font-weight:800;color:var(--pink-deep);text-transform:uppercase">Ali's brands + Scandic</div><div style="font-size:14px;font-weight:900;margin-top:4px;color:var(--text);line-height:1.3">US only</div><div style="font-size:12px;color:var(--text);margin-top:4px;line-height:1.4">Every Mood, Fomin, Roofus, Luna Naturals, Scandic Health</div></div>
+      <div style="background:#F2F8D1;padding:14px 16px;border-radius:6px"><div style="font-size:11px;letter-spacing:1.5px;font-weight:800;color:#5A6A10;text-transform:uppercase">Ruggie</div><div style="font-size:14px;font-weight:900;margin-top:4px;color:var(--text);line-height:1.3">Clarify with Winson</div><div style="font-size:12px;color:var(--text);margin-top:4px;line-height:1.4">Confirm targeting before launch — depends on Ruggie's current market focus.</div></div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ============ 18 · HOW TO KNOW WHICH AD IS GOOD ============ -->
 <div class="slide cream-bg" data-label="Reject Bad Ads">
 <div class="slide-inner">
   <div class="pink-banner">How do you know which ad is good?</div>
@@ -561,7 +599,7 @@ html,body{height:100%;overflow:hidden;background:var(--cream);color:var(--text);
 <nav class="nav">
   <button class="nav-btn" onclick="prev()" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M15 18l-6-6 6-6"/></svg></button>
   <div class="progress">
-    <div class="counter"><span id="current">01</span> / <span id="total">19</span></div>
+    <div class="counter"><span id="current">01</span> / <span id="total">20</span></div>
     <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
     <div class="section-label" id="sectionLabel">Care & Bloom</div>
   </div>
