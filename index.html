@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hello Nancy Offsite — Goals, Teams & Setup · 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Newsreader:ital,wght@0,400;0,500;1,400;1,500;1,600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --cream:#FBF1D8;
+  --pink:#FF2A8E;
+  --pink-deep:#E8407A;
+  --pink-light:#F6DEE9;
+  --pink-soft:#FAE4EC;
+  --chartreuse:#CCE245;
+  --black:#000;
+  --text:#1A1A1A;
+  --dim:#666;
+}
+html,body{height:100%;overflow:hidden;background:var(--cream);color:var(--text);font-family:'Inter',sans-serif;-webkit-tap-highlight-color:transparent;touch-action:manipulation;overscroll-behavior:contain}
+
+.deck{position:relative;width:100%;height:100vh}
+.slide{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity 0.5s ease,visibility 0.5s ease;z-index:1;padding:48px;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.slide.active{opacity:1;visibility:visible;z-index:2}
+.slide-inner{max-width:1100px;width:100%;position:relative;z-index:1}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.slide.active .slide-inner>*{opacity:0;animation:fadeUp 0.6s ease forwards}
+.slide.active .slide-inner>*:nth-child(1){animation-delay:0.05s}
+.slide.active .slide-inner>*:nth-child(2){animation-delay:0.18s}
+.slide.active .slide-inner>*:nth-child(3){animation-delay:0.30s}
+.slide.active .slide-inner>*:nth-child(4){animation-delay:0.42s}
+.slide.active .slide-inner>*:nth-child(5){animation-delay:0.54s}
+.slide.active .slide-inner>*:nth-child(6){animation-delay:0.66s}
+.slide.active .slide-inner>*:nth-child(7){animation-delay:0.78s}
+.slide.active .slide-inner>*:nth-child(8){animation-delay:0.90s}
+
+/* TYPOGRAPHY */
+.eyebrow{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--pink);font-weight:700;margin-bottom:24px}
+.huge{font-family:'Inter',sans-serif;font-size:clamp(48px,7vw,96px);font-weight:900;line-height:1.0;letter-spacing:-2px;color:var(--black)}
+.big{font-family:'Inter',sans-serif;font-size:clamp(32px,5vw,64px);font-weight:900;line-height:1.05;letter-spacing:-1.5px;color:var(--black)}
+.medium{font-family:'Inter',sans-serif;font-size:clamp(20px,3vw,32px);font-weight:700;line-height:1.2;color:var(--black)}
+.body{font-size:17px;line-height:1.6;color:var(--text);margin-top:20px;font-weight:400;max-width:780px}
+.italic{font-family:'Newsreader',Georgia,serif;font-style:italic;font-weight:400}
+.pink-text{color:var(--pink)}
+
+/* PINK BANNER */
+.pink-banner{background:var(--pink);color:#fff;padding:18px 28px;font-weight:900;font-size:clamp(20px,3vw,30px);letter-spacing:-0.5px;margin:-48px -48px 28px -48px;width:calc(100% + 96px);text-transform:uppercase;line-height:1.1}
+.lime-banner{background:var(--chartreuse);color:var(--black);padding:18px 28px;font-weight:900;font-size:clamp(20px,3vw,30px);letter-spacing:-0.5px;margin:-48px -48px 28px -48px;width:calc(100% + 96px);text-transform:uppercase;line-height:1.1}
+
+/* PINK PANEL */
+.pink-stripe-box{background:#fff;border-left:6px solid var(--pink);padding:24px 32px;margin-top:28px}
+.lime-stripe-box{background:#fff;border-left:6px solid var(--chartreuse);padding:24px 32px;margin-top:28px}
+
+/* COLUMNS */
+.split-cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:32px}
+.split-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:32px}
+.col-card{background:var(--pink-soft);padding:28px 32px;border-radius:8px}
+.col-card.lime{background:#F2F8D1}
+.col-card.white{background:#fff;border-top:6px solid var(--pink)}
+.col-header{font-size:12px;letter-spacing:2.5px;text-transform:uppercase;font-weight:800;color:var(--pink);margin-bottom:16px}
+.col-header.lime{color:#7A8F1A}
+.col-list{list-style:none}
+.col-list li{padding:8px 0;font-size:15px;line-height:1.55;color:var(--text);border-bottom:1px solid rgba(0,0,0,0.06)}
+.col-list li:last-child{border-bottom:none}
+
+/* MISSION GRID */
+.mission-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:24px}
+.mission-card{background:#fff;padding:14px 16px;border-radius:6px;border-top:6px solid var(--pink);position:relative}
+.mission-card.zero-to-1k{border-top-color:var(--chartreuse)}
+.mission-name{font-size:14px;font-weight:900;color:var(--black);letter-spacing:-0.3px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.mission-tag{font-size:8px;letter-spacing:1.5px;font-weight:800;padding:3px 8px;border-radius:12px;text-transform:uppercase;white-space:nowrap}
+.mission-tag.existing{background:var(--pink);color:#fff}
+.mission-tag.new{background:var(--chartreuse);color:var(--black)}
+.mission-tag.friend{background:var(--pink-light);color:var(--pink-deep)}
+.mission-kpi{font-size:13px;font-weight:800;color:var(--black);margin-top:6px;line-height:1.25}
+.mission-detail{font-size:11px;color:var(--dim);margin-top:4px;line-height:1.4}
+.mission-team{font-size:11px;color:var(--pink);margin-top:4px;font-weight:700;letter-spacing:0.3px}
+.mission-scaler{font-size:11px;color:#7A8F1A;margin-top:6px;font-weight:700;letter-spacing:0.3px}
+
+/* DAY ROW */
+.day-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
+.day-box{background:#fff;padding:18px 20px;border-radius:6px;text-align:center;border-top:6px solid var(--pink)}
+.day-name{font-family:'Inter',sans-serif;font-size:18px;font-weight:900;color:var(--black);letter-spacing:-0.5px}
+.day-detail{font-size:11px;color:var(--dim);margin-top:6px;text-transform:uppercase;letter-spacing:1.5px;font-weight:700}
+
+/* FOOTER STRIP */
+.footer-strip{background:var(--chartreuse);padding:14px 24px;font-weight:800;font-size:13px;letter-spacing:1px;color:var(--black);margin:32px -48px -48px -48px;text-transform:uppercase;text-align:center}
+
+/* PROJECT DETAIL CARDS */
+.detail-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:28px;margin-top:28px;align-items:start}
+.detail-stat{background:#fff;border-top:6px solid var(--pink);padding:22px 26px;border-radius:6px;margin-bottom:14px}
+.detail-stat.lime{border-top-color:var(--chartreuse)}
+.detail-stat-label{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;font-weight:800;color:var(--pink);margin-bottom:6px}
+.detail-stat-label.lime{color:#7A8F1A}
+.detail-stat-value{font-size:24px;font-weight:900;letter-spacing:-0.5px;color:var(--black);line-height:1.15}
+.detail-stat-sub{font-size:12px;color:var(--dim);margin-top:4px;line-height:1.4}
+
+/* TEAM ROW */
+.team-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:18px;margin-top:28px}
+.team-card{background:#fff;padding:20px 18px;border-radius:8px;text-align:center;border-top:5px solid var(--pink)}
+.team-card.lime{border-top-color:var(--chartreuse)}
+.team-avatar{width:72px;height:72px;border-radius:50%;background:var(--pink-soft);margin:0 auto 12px;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:900;color:var(--pink);letter-spacing:-1px}
+.team-avatar.lime{background:#F2F8D1;color:#7A8F1A}
+.team-name{font-size:15px;font-weight:900;color:var(--black);letter-spacing:-0.3px;line-height:1.2}
+.team-role{font-size:11px;color:var(--dim);margin-top:4px;line-height:1.4;text-transform:uppercase;letter-spacing:1px;font-weight:700}
+.team-bio{font-size:12px;color:var(--text);margin-top:8px;line-height:1.45}
+
+/* WEBSITES LIST */
+.url-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:24px}
+.url-card{background:#fff;padding:14px 18px;border-radius:6px;border-left:4px solid var(--pink);display:flex;justify-content:space-between;align-items:center}
+.url-brand{font-size:14px;font-weight:900;color:var(--black);letter-spacing:-0.3px}
+.url-link{font-size:12px;color:var(--pink);font-weight:700;text-decoration:none}
+.url-link:hover{text-decoration:underline}
+
+/* SCHEDULE LIST */
+.sched-list{list-style:none;margin-top:24px}
+.sched-list li{display:grid;grid-template-columns:90px 1fr;gap:20px;padding:11px 0;border-bottom:1px solid rgba(0,0,0,0.08);font-size:15px;color:var(--text);align-items:baseline}
+.sched-list li:last-child{border-bottom:none}
+.sched-list .time{font-weight:900;color:var(--pink);font-size:13px;letter-spacing:0.5px}
+
+/* SIMPLE LIST */
+.simple-list{list-style:none;margin-top:20px}
+.simple-list li{padding:10px 0 10px 24px;font-size:16px;line-height:1.55;color:var(--text);position:relative}
+.simple-list li::before{content:'';position:absolute;left:0;top:18px;width:8px;height:8px;background:var(--pink);border-radius:50%}
+.simple-list.lime li::before{background:var(--chartreuse)}
+
+/* STEP LIST */
+.step-list{list-style:none;margin-top:24px;counter-reset:step}
+.step-list li{padding:14px 0 14px 56px;font-size:16px;line-height:1.55;color:var(--text);position:relative;border-bottom:1px solid rgba(0,0,0,0.07);counter-increment:step}
+.step-list li:last-child{border-bottom:none}
+.step-list li::before{content:counter(step,decimal-leading-zero);position:absolute;left:0;top:16px;font-size:12px;font-weight:900;color:var(--pink);letter-spacing:1px;background:var(--pink-soft);padding:5px 9px;border-radius:4px}
+.step-list strong{color:var(--black);font-weight:800}
+.step-list code{background:rgba(255,42,142,0.08);padding:2px 7px;border-radius:3px;font-family:'SF Mono',Menlo,Consolas,monospace;font-size:13px;color:var(--pink-deep)}
+
+/* CS ROLE CARDS */
+.cs-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:24px}
+.cs-card{background:#fff;padding:22px 26px;border-radius:8px;border-left:5px solid var(--pink)}
+.cs-name{font-size:18px;font-weight:900;letter-spacing:-0.4px;color:var(--black)}
+.cs-tag{font-size:10px;color:var(--pink);font-weight:800;letter-spacing:1.5px;text-transform:uppercase;margin-top:2px}
+.cs-bullets{margin-top:10px;list-style:none}
+.cs-bullets li{font-size:13px;padding:3px 0 3px 14px;position:relative;line-height:1.45;color:var(--text)}
+.cs-bullets li::before{content:'·';position:absolute;left:4px;top:0;color:var(--pink);font-weight:900}
+.cs-strength{font-size:11px;color:#7A8F1A;font-weight:800;letter-spacing:1px;text-transform:uppercase;margin-top:12px}
+.cs-weakness{font-size:11px;color:var(--pink-deep);font-weight:800;letter-spacing:1px;text-transform:uppercase;margin-top:10px}
+
+/* NAV */
+.nav{position:fixed;bottom:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:14px 28px;background:linear-gradient(transparent,rgba(251,241,216,0.95))}
+.nav-btn{background:#fff;border:2px solid var(--pink);color:var(--pink);width:42px;height:42px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;font-weight:900}
+.nav-btn:hover{background:var(--pink);color:#fff}
+.nav-btn svg{width:14px;height:14px}
+.progress{display:flex;align-items:center;gap:12px}
+.progress-bar{width:100px;height:3px;background:var(--pink-light);border-radius:2px;overflow:hidden}
+.progress-fill{height:100%;background:var(--pink);transition:width 0.4s ease}
+.counter{font-size:11px;color:var(--pink);letter-spacing:1px;font-weight:800;font-variant-numeric:tabular-nums}
+.section-label{font-size:10px;color:var(--pink);letter-spacing:2px;text-transform:uppercase;min-width:120px;text-align:right;font-weight:800}
+
+/* CLICK ZONES */
+.click-left,.click-right{position:fixed;top:0;bottom:60px;z-index:50;cursor:pointer}
+.click-left{left:0;width:18%}
+.click-right{right:0;width:18%}
+
+/* SLIDE BACKGROUNDS */
+.slide.pink-bg{background:var(--pink)}
+.slide.pink-bg .body,.slide.pink-bg .huge,.slide.pink-bg .big,.slide.pink-bg .medium{color:#fff}
+.slide.pink-bg .eyebrow{color:#fff;opacity:0.85}
+.slide.cream-bg{background:var(--cream)}
+.slide.lightpink-bg{background:var(--pink-soft)}
+.slide.dark-bg{background:#0A0A0A;color:var(--cream)}
+.slide.dark-bg .huge,.slide.dark-bg .big,.slide.dark-bg .medium{color:var(--cream)}
+.slide.dark-bg .eyebrow{color:var(--chartreuse)}
+.slide.lime-bg{background:var(--chartreuse)}
+.slide.navy-bg{background:#1F2347;color:#F5E9D6}
+.slide.navy-bg .huge,.slide.navy-bg .big,.slide.navy-bg .medium{color:#F5E9D6}
+
+/* BOUNTY TIERS */
+.bounty-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:32px;max-width:760px;margin-left:auto;margin-right:auto}
+.bounty-tier{background:#fff;border-radius:10px;padding:24px 26px;border-top:6px solid var(--pink);position:relative;display:flex;flex-direction:column;justify-content:space-between;min-height:200px}
+.bounty-tier.gold{border-top-color:#E8B547}
+.bounty-tier.lime-top{border-top-color:var(--chartreuse)}
+.tier-tag{font-size:9px;letter-spacing:2.5px;text-transform:uppercase;font-weight:800;color:var(--pink);margin-bottom:8px}
+.tier-tag.gold{color:#C8973A}
+.tier-tag.lime-top{color:#7A8F1A}
+.tier-trigger{font-size:14px;font-weight:700;color:var(--text);line-height:1.35;min-height:60px}
+.tier-payout{font-size:32px;font-weight:900;color:var(--pink);letter-spacing:-1px;margin-top:14px;line-height:1}
+.tier-payout.gold{color:#C8973A}
+.tier-payout.lime-top{color:#7A8F1A}
+.tier-sub{font-size:11px;color:var(--dim);margin-top:6px;line-height:1.4}
+.bounty-max-banner{background:var(--black);color:var(--chartreuse);padding:18px 28px;margin-top:28px;border-radius:10px;text-align:center;font-size:clamp(18px,2.8vw,26px);font-weight:900;letter-spacing:-0.5px}
+.bounty-max-banner .num{color:#fff;font-size:1.3em}
+
+/* SCREENSHOT SLOT (placeholder for SOP slides) */
+.shot-slot{background:rgba(255,42,142,0.04);border:2px dashed rgba(255,42,142,0.35);border-radius:8px;padding:24px;text-align:center;margin-top:18px;min-height:140px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px}
+.shot-slot .shot-icon{width:28px;height:28px;border-radius:50%;background:var(--pink-soft);display:flex;align-items:center;justify-content:center;color:var(--pink);font-weight:900;font-size:14px}
+.shot-slot .shot-label{font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:800;color:var(--pink)}
+.shot-slot .shot-desc{font-size:13px;color:var(--dim);line-height:1.45;max-width:420px}
+.shot-slot img{max-width:100%;border-radius:6px;display:block}
+.shot-slot.has-img{padding:0;border:none;background:transparent}
+
+/* STRETCH BADGE ON MISSION CARDS */
+.mission-stretch{font-size:10.5px;color:#7A8F1A;margin-top:5px;font-weight:800;letter-spacing:0.2px;background:#F2F8D1;padding:3px 6px;border-radius:3px;display:inline-block;line-height:1.3}
+
+/* SCHEDULE CARD (navy days) */
+.sched-card{background:rgba(0,0,0,0.18);border:1px solid rgba(245,233,214,0.12);border-radius:20px;padding:44px 48px;max-width:820px;margin:0 auto;position:relative}
+.sched-date{font-family:'Newsreader',Georgia,serif;font-style:italic;font-weight:500;font-size:clamp(34px,4.8vw,52px);color:#F5E9D6;letter-spacing:-1px;line-height:1}
+.sched-day-label{position:absolute;top:52px;right:52px;font-size:11px;letter-spacing:3px;font-weight:800;color:rgba(245,233,214,0.45);text-transform:uppercase}
+.sched-venue{font-family:'Newsreader',Georgia,serif;font-style:italic;font-weight:500;font-size:15px;color:#FF6B9D;margin-top:18px}
+.sched-venue .rest{color:rgba(245,233,214,0.65);font-style:normal;font-family:'Inter',sans-serif;font-size:15px}
+.sched-divider{height:1px;background:rgba(245,233,214,0.15);margin:26px 0 14px}
+.sched-rows{list-style:none;margin:0}
+.sched-rows li{display:grid;grid-template-columns:120px 1fr;gap:24px;padding:13px 0;border-bottom:1px solid rgba(245,233,214,0.07);align-items:baseline}
+.sched-rows li:last-child{border-bottom:none}
+.sched-rows li.sub{padding:8px 0 8px 0;border-bottom:1px solid rgba(245,233,214,0.04)}
+.sched-rows .time{font-size:11px;letter-spacing:2px;color:#FF6B9D;font-weight:700;text-transform:uppercase;font-variant-numeric:tabular-nums}
+.sched-rows li.sub .time{color:rgba(255,107,157,0.7);font-size:10px}
+.sched-rows .what{font-size:15.5px;color:#F5E9D6;line-height:1.5}
+.sched-rows li.sub .what{font-size:13.5px;color:rgba(245,233,214,0.78);padding-left:14px;border-left:2px solid rgba(255,107,157,0.35)}
+
+/* CENTER LAYOUT */
+.center{text-align:center}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .slide{padding:32px 22px;padding-bottom:80px;align-items:flex-start;padding-top:50px}
+  .split-cols{grid-template-columns:1fr;gap:18px}
+  .split-3{grid-template-columns:1fr;gap:14px}
+  .mission-grid{grid-template-columns:repeat(2,1fr)}
+  .day-row{grid-template-columns:1fr;gap:12px}
+  .detail-grid{grid-template-columns:1fr;gap:18px}
+  .url-grid{grid-template-columns:1fr;gap:8px}
+  .cs-grid{grid-template-columns:1fr;gap:14px}
+  .pink-banner,.lime-banner{margin:-32px -22px 24px -22px;width:calc(100% + 44px);font-size:18px;padding:14px 22px}
+  .footer-strip{margin:28px -22px -32px -22px;padding:12px 22px;font-size:12px}
+  .body{font-size:15.5px}
+  .sched-list li{grid-template-columns:70px 1fr;gap:14px;font-size:14px}
+  .sched-card{padding:32px 26px;border-radius:14px}
+  .sched-day-label{top:34px;right:26px}
+  .sched-rows li{grid-template-columns:90px 1fr;gap:14px}
+  .sched-rows .what{font-size:14px}
+  .sched-rows li.sub .what{font-size:12.5px;padding-left:10px}
+  .bounty-grid{grid-template-columns:1fr;gap:14px}
+  .bounty-tier{min-height:auto;padding:20px 22px}
+  .tier-trigger{min-height:auto}
+}
+@media(max-width:560px){
+  .nav{padding:10px 18px}
+  .progress-bar{width:70px}
+  .section-label{display:none}
+}
+</style>
+</head>
+<body>
+
+<div class="click-left" onclick="prev()"></div>
+<div class="click-right" onclick="next()"></div>
+
+<div class="deck">
+
+<!-- ============ 01 · TITLE ============ -->
+<div class="slide active cream-bg" data-label="Hello Nancy">
+<div class="slide-inner">
+  <div class="eyebrow">OFFSITE 2026</div>
+  <div class="huge" style="font-size:clamp(56px,9vw,128px)">Hello Nancy<br>Offsite.</div>
+  <div class="medium" style="margin-top:24px;font-weight:500;letter-spacing:0;color:var(--text)">Goals · Teams · Setup</div>
+</div>
+</div>
+
+<!-- ============ 02 · TEAM ALLOCATIONS ============ -->
+<div class="slide cream-bg" data-label="Teams">
+<div class="slide-inner">
+  <div class="pink-banner">Your Team</div>
+  <div class="body" style="margin-top:0">13 teams. Find your partner.</div>
+  <div class="mission-grid">
+    <div class="mission-card"><div class="mission-team" style="font-size:15px;margin-top:0">Angelique &amp; Remo</div></div>
+    <div class="mission-card"><div class="mission-team" style="font-size:15px;margin-top:0">Sam &amp; Jeanine</div></div>
+    <div class="mission-card"><div class="mission-team" style="font-size:15px;margin-top:0">Rachana &amp; Ron</div></div>
+    <div class="mission-card"><div class="mission-team" style="font-size:15px;margin-top:0">Arvin &amp; Lin</div></div>
+    <div class="mission-card zero-to-1k"><div class="mission-team" style="font-size:15px;margin-top:0">Andrei &amp; Gian</div></div>
+    <div class="mission-card zero-to-1k"><div class="mission-team" style="font-size:15px;margin-top:0">Ryan &amp; Dione</div></div>
+    <div class="mission-card zero-to-1k"><div class="mission-team" style="font-size:15px;margin-top:0">Crystal &amp; Neil</div></div>
+    <div class="mission-card zero-to-1k"><div class="mission-team" style="font-size:15px;margin-top:0">Daphnie &amp; Andrea</div></div>
+    <div class="mission-card zero-to-1k"><div class="mission-team" style="font-size:15px;margin-top:0">Elle &amp; Yoedhis</div></div>
+    <div class="mission-card zero-to-1k"><div class="mission-team" style="font-size:15px;margin-top:0">Dos &amp; Sha</div></div>
+    <div class="mission-card zero-to-1k"><div class="mission-team" style="font-size:15px;margin-top:0">Hamza · Salman · Moeez <span style="color:var(--dim);font-weight:500">(remote)</span></div></div>
+    <div class="mission-card"><div class="mission-team" style="font-size:15px;margin-top:0">Bianca &amp; Dyan</div></div>
+    <div class="mission-card"><div class="mission-team" style="font-size:15px;margin-top:0">Sophie &amp; Stella</div></div>
+  </div>
+</div>
+</div>
+
+<!-- ============ 27 · SETUP INTRO ============ -->
+<div class="slide pink-bg" data-label="Setup">
+<div class="slide-inner">
+  <div class="eyebrow" style="color:#fff;opacity:0.85">5 THINGS · BEFORE WEDNESDAY</div>
+  <div class="huge" style="color:#fff;font-size:clamp(56px,9vw,128px);letter-spacing:-3px;line-height:0.95">Setup.</div>
+  <div class="big" style="font-family:'Newsreader',Georgia,serif;font-style:italic;font-weight:400;color:#fff;margin-top:32px;font-size:clamp(22px,3vw,34px);letter-spacing:-0.5px;line-height:1.3">VPN · Meta · Claude · GitHub.<br>~30 minutes, total.</div>
+</div>
+</div>
+
+<!-- ============ 27b · VPN (FIRST — need VPN before US AI tools work in HK) ============ -->
+<div class="slide cream-bg" data-label="VPN">
+<div class="slide-inner">
+  <div class="pink-banner">01 · VPN Access</div>
+  <div class="big" style="font-size:clamp(28px,4vw,52px);letter-spacing:-1.2px;line-height:1.1">Set this up first.</div>
+  <div class="body">Since we're in Hong Kong, <strong>Claude, ChatGPT, and most US-based AI tools cannot be accessed without a VPN.</strong> Set this up before anything else.</div>
+  <ol class="step-list">
+    <li><strong>Get the credentials</strong> from this 1Password share link:<br><a href="https://share.1password.com/s#Eo6sVaLl0KuRD4PQZjeXiOTniqI5C-JPPwajU_D1n24" target="_blank" rel="noopener" style="display:inline-block;margin-top:10px;background:var(--pink);color:#fff;padding:12px 22px;border-radius:6px;font-weight:800;text-decoration:none;font-size:14px;letter-spacing:0.3px">Open 1Password VPN credentials →</a></li>
+    <li>Install the VPN client noted in the credential entry.</li>
+    <li>Log in with the shared credentials.</li>
+    <li><strong>Never share VPN credentials outside the team.</strong> Treat like a password.</li>
+  </ol>
+</div>
+</div>
+
+<!-- ============ 28 · META ============ -->
+<div class="slide cream-bg" data-label="Meta Access">
+<div class="slide-inner">
+  <div class="pink-banner">02 · Accept Meta Request</div>
+  <div class="big" style="font-size:clamp(28px,4vw,52px);letter-spacing:-1.2px;line-height:1.1">Ad account invitation.</div>
+  <ol class="step-list">
+    <li>Open your <strong>work email</strong> — Momo has sent the Business Manager invitation. <strong>No invite in your inbox? That means you already have access</strong> — skip to step 3.</li>
+    <li>Click <strong>"Log in to view invitation"</strong> in the email and accept.</li>
+    <li>Once you're inside, click <strong>Ads Manager</strong> in the left sidebar.</li>
+    <li>If you see your assigned ad accounts listed, <strong>you're good to go.</strong></li>
+    <li>Got lost? Message <strong>Angelique or Momo</strong> to unblock.</li>
+  </ol>
+</div>
+</div>
+
+<!-- ============ 29 · CLAUDE ============ -->
+<div class="slide cream-bg" data-label="Claude Max">
+<div class="slide-inner">
+  <div class="pink-banner">03 · Set Up Claude (Max plan)</div>
+  <div class="body" style="margin-top:0"><strong>Everyone</strong> downloads Claude Code on their desktop. <strong>One person per team</strong> sets up Claude Max and shares the login with their partner.</div>
+  <div class="detail-grid">
+    <div>
+      <ol class="step-list">
+        <li>Install <strong>Claude Code</strong> on the desktop from <code>claude.ai/download</code> (everyone).</li>
+        <li>If you're on the list →, go to <code>claude.ai</code> and log in (or sign up with your work email).</li>
+        <li>Profile (bottom-left) → <strong>Settings</strong> → <strong>Plans &amp; Billing</strong> → <strong>Claude Max — $100/mo</strong>.</li>
+        <li>Enter your <strong>personal credit card</strong>. Forward receipt to Momo end-of-month for reimbursement. <strong>Never share company card details outside the team.</strong></li>
+        <li>No personal Claude account? Message Momo for the company card.</li>
+        <li>Share your Claude Max login with your team partner.</li>
+      </ol>
+    </div>
+    <div class="col-card">
+      <div class="col-header">Set up Claude Max (one per team)</div>
+      <div class="body" style="margin-top:6px;font-size:13.5px">Some of you already have a personal Claude — just upgrade to Max. The team below sets it up and shares login with their partner:</div>
+      <ul class="col-list" style="margin-top:10px">
+        <li>Angelique</li>
+        <li>Jeanine</li>
+        <li>Rachana</li>
+        <li>Arvin</li>
+        <li>Gian</li>
+        <li>Ryan</li>
+        <li>Crystal</li>
+        <li>Daphnie</li>
+        <li>Yoedhis</li>
+        <li>Sha</li>
+        <li>Moeez</li>
+        <li>Dyan (please share with Stella too)</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-strip">1 Claude Max = 1 team · Share login within your duo · Never share card details outside the team</div>
+</div>
+</div>
+
+<!-- ============ 32 · GITHUB ============ -->
+<div class="slide cream-bg" data-label="GitHub">
+<div class="slide-inner">
+  <div class="pink-banner">04 · GitHub per Person</div>
+  <div class="big" style="font-size:clamp(28px,4vw,52px);letter-spacing:-1.2px;line-height:1.1">One account each.</div>
+  <div class="body" style="margin-top:0">Sign up, then drop your username into the team tracker sheet so we can coordinate org invites and track everyone's setup status.</div>
+  <ol class="step-list">
+    <li>Go to <code>github.com/signup</code> — sign up with your <strong>work email</strong>.</li>
+    <li>Pick a professional username (firstname-nancy, firstname-lastname).</li>
+    <li>Verify email. Enable <strong>2FA</strong> (Settings → Password and authentication).</li>
+    <li>Install <strong>GitHub Desktop</strong> from <code>desktop.github.com</code>.</li>
+    <li><strong>Add your username + setup status</strong> to the team tracker:<br>
+      <a href="https://docs.google.com/spreadsheets/d/1hjfOMxH-ZMQnBrISgjBgCu6TJhyoPjWbRrqdfrsGS7Q/edit?usp=sharing" target="_blank" rel="noopener" style="display:inline-block;margin-top:10px;background:var(--pink);color:#fff;padding:12px 22px;border-radius:6px;font-weight:800;text-decoration:none;font-size:14px;letter-spacing:0.3px">Open team tracker sheet →</a>
+    </li>
+    <li>Andrea will coordinate the org invite. Accept it from your email → access to shared repos.</li>
+  </ol>
+  <div class="footer-strip">Username to the tracker sheet by Tuesday EOD</div>
+</div>
+</div>
+
+</div><!-- end .deck -->
+
+<nav class="nav">
+  <button class="nav-btn" onclick="prev()" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M15 18l-6-6 6-6"/></svg></button>
+  <div class="progress">
+    <div class="counter"><span id="current">01</span> / <span id="total">33</span></div>
+    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="section-label" id="sectionLabel">Hello Nancy</div>
+  </div>
+  <button class="nav-btn" onclick="next()" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M9 18l6-6-6-6"/></svg></button>
+</nav>
+
+<script>
+const slides=document.querySelectorAll('.slide');
+const total=slides.length;
+let idx=0;
+document.getElementById('total').textContent=String(total).padStart(2,'0');
+
+function go(n){
+  slides[idx].classList.remove('active');
+  slides[idx].querySelectorAll('.slide-inner > *').forEach(el=>{el.style.animation='none';el.offsetHeight;el.style.animation=''});
+  idx=((n%total)+total)%total;
+  slides[idx].classList.add('active');
+  document.getElementById('current').textContent=String(idx+1).padStart(2,'0');
+  document.getElementById('progressFill').style.width=((idx+1)/total*100)+'%';
+  document.getElementById('sectionLabel').textContent=slides[idx].dataset.label||'';
+  // Update URL hash so deep links work
+  history.replaceState(null,'','#'+(idx+1));
+}
+
+function next(){go(idx+1)}
+function prev(){go(idx-1)}
+
+// Init from URL hash
+function goFromHash(){
+  const h=parseInt(location.hash.replace('#',''),10);
+  if(!isNaN(h) && h>=1 && h<=total) go(h-1);
+}
+const initialHash=parseInt(location.hash.replace('#',''),10);
+if(!isNaN(initialHash) && initialHash>=1 && initialHash<=total){
+  go(initialHash-1);
+} else {
+  document.getElementById('progressFill').style.width=(1/total*100)+'%';
+}
+window.addEventListener('hashchange',goFromHash);
+
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight'||e.key===' ')next();
+  if(e.key==='ArrowLeft')prev();
+  if(e.key==='ArrowDown')next();
+  if(e.key==='ArrowUp')prev();
+});
+
+let tx=0;
+document.addEventListener('touchstart',e=>{tx=e.touches[0].clientX},{passive:true});
+document.addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>50){d<0?next():prev()}},{passive:true});
+</script>
+</body>
+</html>
