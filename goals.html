@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Care & Bloom Offsite — Goals, Bounty & Schedule · 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Newsreader:ital,wght@0,400;0,500;1,400;1,500;1,600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --cream:#FBF1D8;
+  --pink:#FF2A8E;
+  --pink-deep:#E8407A;
+  --pink-light:#F6DEE9;
+  --pink-soft:#FAE4EC;
+  --chartreuse:#CCE245;
+  --black:#000;
+  --text:#1A1A1A;
+  --dim:#666;
+}
+html,body{height:100%;overflow:hidden;background:var(--cream);color:var(--text);font-family:'Inter',sans-serif;-webkit-tap-highlight-color:transparent;touch-action:manipulation;overscroll-behavior:contain}
+.deck{position:relative;width:100%;height:100vh}
+.slide{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity 0.5s ease,visibility 0.5s ease;z-index:1;padding:48px;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.slide.active{opacity:1;visibility:visible;z-index:2}
+.slide-inner{max-width:1100px;width:100%;position:relative;z-index:1}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.slide.active .slide-inner>*{opacity:0;animation:fadeUp 0.6s ease forwards}
+.slide.active .slide-inner>*:nth-child(1){animation-delay:0.05s}
+.slide.active .slide-inner>*:nth-child(2){animation-delay:0.18s}
+.slide.active .slide-inner>*:nth-child(3){animation-delay:0.30s}
+.slide.active .slide-inner>*:nth-child(4){animation-delay:0.42s}
+.slide.active .slide-inner>*:nth-child(5){animation-delay:0.54s}
+.slide.active .slide-inner>*:nth-child(6){animation-delay:0.66s}
+.slide.active .slide-inner>*:nth-child(7){animation-delay:0.78s}
+.slide.active .slide-inner>*:nth-child(8){animation-delay:0.90s}
+.eyebrow{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--pink);font-weight:700;margin-bottom:24px}
+.huge{font-family:'Inter',sans-serif;font-size:clamp(48px,7vw,96px);font-weight:900;line-height:1.0;letter-spacing:-2px;color:var(--black)}
+.big{font-family:'Inter',sans-serif;font-size:clamp(32px,5vw,64px);font-weight:900;line-height:1.05;letter-spacing:-1.5px;color:var(--black)}
+.medium{font-family:'Inter',sans-serif;font-size:clamp(20px,3vw,32px);font-weight:700;line-height:1.2;color:var(--black)}
+.body{font-size:17px;line-height:1.6;color:var(--text);margin-top:20px;font-weight:400;max-width:780px}
+.italic{font-family:'Newsreader',Georgia,serif;font-style:italic;font-weight:400}
+.pink-text{color:var(--pink)}
+.pink-banner{background:var(--pink);color:#fff;padding:18px 28px;font-weight:900;font-size:clamp(20px,3vw,30px);letter-spacing:-0.5px;margin:-48px -48px 28px -48px;width:calc(100% + 96px);text-transform:uppercase;line-height:1.1}
+.pink-stripe-box{background:#fff;border-left:6px solid var(--pink);padding:24px 32px;margin-top:28px}
+.mission-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:24px}
+.mission-card{background:#fff;padding:14px 16px;border-radius:6px;border-top:6px solid var(--pink);position:relative}
+.mission-card.zero-to-1k{border-top-color:var(--chartreuse)}
+.mission-name{font-size:14px;font-weight:900;color:var(--black);letter-spacing:-0.3px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.mission-tag{font-size:8px;letter-spacing:1.5px;font-weight:800;padding:3px 8px;border-radius:12px;text-transform:uppercase;white-space:nowrap}
+.mission-tag.existing{background:var(--pink);color:#fff}
+.mission-tag.new{background:var(--chartreuse);color:var(--black)}
+.mission-tag.friend{background:var(--pink-light);color:var(--pink-deep)}
+.mission-kpi{font-size:13px;font-weight:800;color:var(--black);margin-top:6px;line-height:1.25}
+.mission-detail{font-size:11px;color:var(--dim);margin-top:4px;line-height:1.4}
+.mission-team{font-size:11px;color:var(--pink);margin-top:4px;font-weight:700;letter-spacing:0.3px}
+.mission-scaler{font-size:11px;color:#7A8F1A;margin-top:6px;font-weight:700;letter-spacing:0.3px}
+.footer-strip{background:var(--chartreuse);padding:14px 24px;font-weight:800;font-size:13px;letter-spacing:1px;color:var(--black);margin:32px -48px -48px -48px;text-transform:uppercase;text-align:center}
+.url-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:24px}
+.url-card{background:#fff;padding:14px 18px;border-radius:6px;border-left:4px solid var(--pink);display:flex;justify-content:space-between;align-items:center}
+.url-brand{font-size:14px;font-weight:900;color:var(--black);letter-spacing:-0.3px}
+.url-link{font-size:12px;color:var(--pink);font-weight:700;text-decoration:none}
+.url-link:hover{text-decoration:underline}
+.simple-list{list-style:none;margin-top:20px}
+.simple-list li{padding:10px 0 10px 24px;font-size:16px;line-height:1.55;color:var(--text);position:relative}
+.simple-list li::before{content:'';position:absolute;left:0;top:18px;width:8px;height:8px;background:var(--pink);border-radius:50%}
+.nav{position:fixed;bottom:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:14px 28px;background:linear-gradient(transparent,rgba(251,241,216,0.95))}
+.nav-btn{background:#fff;border:2px solid var(--pink);color:var(--pink);width:42px;height:42px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;font-weight:900}
+.nav-btn:hover{background:var(--pink);color:#fff}
+.nav-btn svg{width:14px;height:14px}
+.progress{display:flex;align-items:center;gap:12px}
+.progress-bar{width:100px;height:3px;background:var(--pink-light);border-radius:2px;overflow:hidden}
+.progress-fill{height:100%;background:var(--pink);transition:width 0.4s ease}
+.counter{font-size:11px;color:var(--pink);letter-spacing:1px;font-weight:800;font-variant-numeric:tabular-nums}
+.section-label{font-size:10px;color:var(--pink);letter-spacing:2px;text-transform:uppercase;min-width:120px;text-align:right;font-weight:800}
+.click-left,.click-right{position:fixed;top:0;bottom:60px;z-index:50;cursor:pointer}
+.click-left{left:0;width:18%}
+.click-right{right:0;width:18%}
+.slide.pink-bg{background:var(--pink)}
+.slide.pink-bg .body,.slide.pink-bg .huge,.slide.pink-bg .big,.slide.pink-bg .medium{color:#fff}
+.slide.pink-bg .eyebrow{color:#fff;opacity:0.85}
+.slide.cream-bg{background:var(--cream)}
+.slide.lightpink-bg{background:var(--pink-soft)}
+.slide.navy-bg{background:#1F2347;color:#F5E9D6}
+.slide.navy-bg .huge,.slide.navy-bg .big,.slide.navy-bg .medium{color:#F5E9D6}
+.bounty-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:32px;max-width:760px;margin-left:auto;margin-right:auto}
+.bounty-tier{background:#fff;border-radius:10px;padding:24px 26px;border-top:6px solid var(--pink);position:relative;display:flex;flex-direction:column;justify-content:space-between;min-height:200px}
+.bounty-tier.lime-top{border-top-color:var(--chartreuse)}
+.tier-tag{font-size:9px;letter-spacing:2.5px;text-transform:uppercase;font-weight:800;color:var(--pink);margin-bottom:8px}
+.tier-tag.lime-top{color:#7A8F1A}
+.tier-trigger{font-size:14px;font-weight:700;color:var(--text);line-height:1.35;min-height:60px}
+.tier-payout{font-size:32px;font-weight:900;color:var(--pink);letter-spacing:-1px;margin-top:14px;line-height:1}
+.tier-payout.lime-top{color:#7A8F1A}
+.tier-sub{font-size:11px;color:var(--dim);margin-top:6px;line-height:1.4}
+.bounty-max-banner{background:var(--black);color:var(--chartreuse);padding:18px 28px;margin-top:28px;border-radius:10px;text-align:center;font-size:clamp(18px,2.8vw,26px);font-weight:900;letter-spacing:-0.5px}
+.bounty-max-banner .num{color:#fff;font-size:1.3em}
+.sched-card{background:rgba(0,0,0,0.18);border:1px solid rgba(245,233,214,0.12);border-radius:20px;padding:44px 48px;max-width:820px;margin:0 auto;position:relative}
+.sched-date{font-family:'Newsreader',Georgia,serif;font-style:italic;font-weight:500;font-size:clamp(34px,4.8vw,52px);color:#F5E9D6;letter-spacing:-1px;line-height:1}
+.sched-day-label{position:absolute;top:52px;right:52px;font-size:11px;letter-spacing:3px;font-weight:800;color:rgba(245,233,214,0.45);text-transform:uppercase}
+.sched-venue{font-family:'Newsreader',Georgia,serif;font-style:italic;font-weight:500;font-size:15px;color:#FF6B9D;margin-top:18px}
+.sched-venue .rest{color:rgba(245,233,214,0.65);font-style:normal;font-family:'Inter',sans-serif;font-size:15px}
+.sched-divider{height:1px;background:rgba(245,233,214,0.15);margin:26px 0 14px}
+.sched-rows{list-style:none;margin:0}
+.sched-rows li{display:grid;grid-template-columns:120px 1fr;gap:24px;padding:13px 0;border-bottom:1px solid rgba(245,233,214,0.07);align-items:baseline}
+.sched-rows li:last-child{border-bottom:none}
+.sched-rows li.sub{padding:8px 0 8px 0;border-bottom:1px solid rgba(245,233,214,0.04)}
+.sched-rows .time{font-size:11px;letter-spacing:2px;color:#FF6B9D;font-weight:700;text-transform:uppercase;font-variant-numeric:tabular-nums}
+.sched-rows li.sub .time{color:rgba(255,107,157,0.7);font-size:10px}
+.sched-rows .what{font-size:15.5px;color:#F5E9D6;line-height:1.5}
+.sched-rows li.sub .what{font-size:13.5px;color:rgba(245,233,214,0.78);padding-left:14px;border-left:2px solid rgba(255,107,157,0.35)}
+@media(max-width:900px){
+  .slide{padding:32px 22px;padding-bottom:80px;align-items:flex-start;padding-top:50px}
+  .mission-grid{grid-template-columns:repeat(2,1fr)}
+  .url-grid{grid-template-columns:1fr;gap:8px}
+  .pink-banner{margin:-32px -22px 24px -22px;width:calc(100% + 44px);font-size:18px;padding:14px 22px}
+  .footer-strip{margin:28px -22px -32px -22px;padding:12px 22px;font-size:12px}
+  .body{font-size:15.5px}
+  .sched-card{padding:32px 26px;border-radius:14px}
+  .sched-day-label{top:34px;right:26px}
+  .sched-rows li{grid-template-columns:90px 1fr;gap:14px}
+  .sched-rows .what{font-size:14px}
+  .sched-rows li.sub .what{font-size:12.5px;padding-left:10px}
+  .bounty-grid{grid-template-columns:1fr;gap:14px}
+  .bounty-tier{min-height:auto;padding:20px 22px}
+  .tier-trigger{min-height:auto}
+}
+@media(max-width:560px){
+  .nav{padding:10px 18px}
+  .progress-bar{width:70px}
+  .section-label{display:none}
+}
+</style>
+</head>
+<body>
+
+<div class="click-left" onclick="prev()"></div>
+<div class="click-right" onclick="next()"></div>
+
+<div class="deck">
+
+<!-- ============ 01 · TITLE ============ -->
+<div class="slide active cream-bg" data-label="Care & Bloom">
+<div class="slide-inner">
+  <div class="eyebrow">OFFSITE 2026 · GOALS & SCHEDULE</div>
+  <div class="huge" style="font-size:clamp(56px,9vw,128px)">Care &amp; Bloom<br>Offsite.</div>
+  <div class="medium" style="margin-top:24px;font-weight:500;letter-spacing:0;color:var(--text)">Goals · Bounty · Schedule</div>
+</div>
+</div>
+
+<!-- ============ 02 · THE GOAL ============ -->
+<div class="slide cream-bg" data-label="The Goal">
+<div class="slide-inner">
+  <div class="eyebrow">01 · WHAT WE'RE DOING</div>
+  <div class="huge" style="color:var(--pink);font-size:clamp(48px,8vw,110px);line-height:0.95;letter-spacing:-3px">10 brands.<br>13 teams.<br>One offsite.</div>
+  <div class="big" style="font-family:'Newsreader',Georgia,serif;font-style:italic;font-weight:400;margin-top:36px;font-size:clamp(22px,3.2vw,38px);color:var(--black);letter-spacing:-0.5px;line-height:1.35">You + a partner. One brand. One KPI.</div>
+  <div class="big" style="font-family:'Newsreader',Georgia,serif;font-style:italic;font-weight:400;margin-top:8px;font-size:clamp(22px,3.2vw,38px);color:var(--pink-deep);letter-spacing:-0.5px;line-height:1.35">Hit your number by Day 3.</div>
+</div>
+</div>
+
+<!-- ============ 03 · THE BOUNTY ============ -->
+<div class="slide cream-bg" data-label="The Bounty">
+<div class="slide-inner">
+  <div class="eyebrow">02 · THE BOUNTY</div>
+  <div class="huge" style="font-size:clamp(44px,7vw,84px);letter-spacing:-2px">Hit your number. <span style="color:var(--pink)">Get paid.</span></div>
+  <div class="body" style="margin-top:14px">Two tiers. They stack. Per person, per project.</div>
+  <div class="bounty-grid">
+    <div class="bounty-tier">
+      <div>
+        <div class="tier-tag">Tier 1 · Team Base</div>
+        <div class="tier-trigger">Your <strong>whole team</strong> hits the base goal.</div>
+      </div>
+      <div>
+        <div class="tier-payout">$500</div>
+        <div class="tier-sub">per person · $1k per pair · $1.5k per trio</div>
+      </div>
+    </div>
+    <div class="bounty-tier lime-top">
+      <div>
+        <div class="tier-tag lime-top">Tier 2 · Offsite Unlock</div>
+        <div class="tier-trigger"><strong>All 13 teams</strong> hit base. Solidarity bonus.</div>
+      </div>
+      <div>
+        <div class="tier-payout lime-top">+$1,000</div>
+        <div class="tier-sub">stacks on team base · everyone gets it or nobody does</div>
+      </div>
+    </div>
+  </div>
+  <div class="bounty-max-banner">Max payout <span class="num">$1,500</span> / person — team base + offsite unlock</div>
+</div>
+</div>
+
+<!-- ============ 04 · MISSIONS GRID (WITH GOALS) ============ -->
+<div class="slide cream-bg" data-label="The Missions">
+<div class="slide-inner">
+  <div class="pink-banner">10 Brands · 13 Teams</div>
+  <div class="body" style="margin-top:0">Every team has a brand, a goal, a scaler, and a partner. Pink = existing/scaling. Lime = $0 → $1k/day greenfield. <strong>All numbers USD.</strong></div>
+  <div class="mission-grid">
+    <div class="mission-card"><div class="mission-name">Hello Nancy P1 <span class="mission-tag existing">VSL</span></div><div class="mission-kpi">$5k spend/day · ROAS 2.5</div><div class="mission-detail">Meta VSL ads (text + full)</div><div class="mission-scaler">Scaler · Kayhan &amp; Ruth</div><div class="mission-team">Team · Angelique &amp; Remo</div></div>
+    <div class="mission-card"><div class="mission-name">Hello Nancy P2 <span class="mission-tag existing">Quiz</span></div><div class="mission-kpi">$5k spend/day · ROAS 2.5</div><div class="mission-detail">Heyflow Quiz (Plateful play)</div><div class="mission-scaler">Scaler · Markus &amp; Momo</div><div class="mission-team">Team · Sam &amp; Jeanine</div></div>
+    <div class="mission-card"><div class="mission-name">Hello Nancy P3 <span class="mission-tag existing">Upsell</span></div><div class="mission-kpi">$5k spend/day @ 2.5 · Upsell &gt;20%</div><div class="mission-detail">Text VSL · post-purchase upsell flow</div><div class="mission-scaler">Scaler · Markus &amp; Momo</div><div class="mission-team">Team · Rachana &amp; Ron</div></div>
+    <div class="mission-card"><div class="mission-name">Biird <span class="mission-tag existing">Scale</span></div><div class="mission-kpi">$5k → $15k revenue/day · ROAS 1.5</div><div class="mission-detail">Glass (Kalli, Anii) · ramp D2/D3</div><div class="mission-scaler">Scaler · Rahul</div><div class="mission-team">Team · Arvin &amp; Lin</div></div>
+    <div class="mission-card zero-to-1k"><div class="mission-name">Nancy Finds <span class="mission-tag new">0→1k</span></div><div class="mission-kpi">$0 → $1k revenue/day · ROAS 2.0</div><div class="mission-detail">Rose products</div><div class="mission-scaler">Scaler · Simon</div><div class="mission-team">Team · Andrei &amp; Gian</div></div>
+    <div class="mission-card zero-to-1k"><div class="mission-name">Sora <span class="mission-tag new">0→1k</span></div><div class="mission-kpi">$0 → $1k revenue/day · ROAS 2.0</div><div class="mission-detail">Vibes / wellness</div><div class="mission-scaler">Scaler · Sahil</div><div class="mission-team">Team · Ryan &amp; Dione</div></div>
+    <div class="mission-card zero-to-1k"><div class="mission-name">Nancy Universe <span class="mission-tag new">0→1k</span></div><div class="mission-kpi">$0 → $1k revenue/day · ROAS 2.0</div><div class="mission-detail">Early stage</div><div class="mission-scaler">Scaler · Rahul &amp; Ivan</div><div class="mission-team">Team · Crystal &amp; Neil</div></div>
+    <div class="mission-card zero-to-1k"><div class="mission-name">Every Mood <span class="mission-tag new">0→1k</span></div><div class="mission-kpi">$0 → $1k revenue/day · ROAS 2.0</div><div class="mission-detail">Sanitizer · Ali's brand</div><div class="mission-scaler">Scaler · Mehdi · Shabir · Ali</div><div class="mission-team">Team · Daphnie &amp; Andrea</div></div>
+    <div class="mission-card zero-to-1k"><div class="mission-name">Fomin <span class="mission-tag new">0→1k</span></div><div class="mission-kpi">$0 → $1k revenue/day · ROAS 2.0</div><div class="mission-detail">Soap · Ali's brand</div><div class="mission-scaler">Scaler · Mehdi · Shabir · Ali</div><div class="mission-team">Team · Elle &amp; Yoedhis</div></div>
+    <div class="mission-card zero-to-1k"><div class="mission-name">Roofus <span class="mission-tag new">0→1k</span></div><div class="mission-kpi">$0 → $1k revenue/day · ROAS 2.0</div><div class="mission-detail">Pet · Ali's brand</div><div class="mission-scaler">Scaler · Mehdi · Shabir · Ali</div><div class="mission-team">Team · Dos &amp; Sha</div></div>
+    <div class="mission-card zero-to-1k"><div class="mission-name">Luna Naturals <span class="mission-tag new">0→1k</span></div><div class="mission-kpi">$0 → $1k revenue/day · ROAS 2.0</div><div class="mission-detail">Repellent · Ali's brand</div><div class="mission-scaler">Scaler · Mehdi · Shabir · Ali</div><div class="mission-team">Team · Hamza · Salman · Moeez (remote)</div></div>
+    <div class="mission-card"><div class="mission-name">Scandic Health <span class="mission-tag friend">+2k</span></div><div class="mission-kpi">+$2k revenue/day · ROAS TBC</div><div class="mission-detail">Shabir's brand · ramp D2/D3</div><div class="mission-scaler">Scaler · Mehdi · Shabir · Ali</div><div class="mission-team">Team · Bianca &amp; Dyan</div></div>
+    <div class="mission-card"><div class="mission-name">Ruggie <span class="mission-tag friend">+5k</span></div><div class="mission-kpi">$5k revenue/day · ROAS 2.0</div><div class="mission-detail">Winson's brand · ramp D2/D3</div><div class="mission-scaler">Scaler · Winson</div><div class="mission-team">Team · Sophie &amp; Stella</div></div>
+  </div>
+  <div class="footer-strip">All numbers USD · Day 3 is the read · No safe bets</div>
+</div>
+</div>
+
+<!-- ============ 05 · BRAND LINKS ============ -->
+<div class="slide lightpink-bg" data-label="Brand Links">
+<div class="slide-inner">
+  <div class="eyebrow">EVERY BRAND · EVERY URL</div>
+  <div class="big" style="font-size:clamp(28px,4.5vw,56px);letter-spacing:-1.5px;line-height:1.1">The 10 properties.</div>
+  <div class="url-grid">
+    <div class="url-card"><span class="url-brand">Hello Nancy</span><a class="url-link" href="https://hellonancy.com/" target="_blank">hellonancy.com →</a></div>
+    <div class="url-card"><span class="url-brand">Biird</span><a class="url-link" href="https://www.biird.co/" target="_blank">biird.co →</a></div>
+    <div class="url-card"><span class="url-brand">Nancy Finds</span><a class="url-link" href="https://nancyfinds.com/" target="_blank">nancyfinds.com →</a></div>
+    <div class="url-card"><span class="url-brand">Sora</span><a class="url-link" href="https://soravibes.com/" target="_blank">soravibes.com →</a></div>
+    <div class="url-card"><span class="url-brand">Nancy Universe</span><a class="url-link" href="https://nancyuniverse.com/" target="_blank">nancyuniverse.com →</a></div>
+    <div class="url-card"><span class="url-brand">Every Mood</span><a class="url-link" href="https://everymood.com/collections/sanitizer" target="_blank">everymood.com →</a></div>
+    <div class="url-card"><span class="url-brand">Fomin</span><a class="url-link" href="https://fominsoap.com/" target="_blank">fominsoap.com →</a></div>
+    <div class="url-card"><span class="url-brand">Roofus</span><a class="url-link" href="https://roofuspet.com/" target="_blank">roofuspet.com →</a></div>
+    <div class="url-card"><span class="url-brand">Luna Naturals</span><a class="url-link" href="https://lunanaturals.co/" target="_blank">lunanaturals.co →</a></div>
+    <div class="url-card"><span class="url-brand">Scandic Health</span><a class="url-link" href="https://scandichealthlabs.com/" target="_blank">scandichealthlabs.com →</a></div>
+    <div class="url-card"><span class="url-brand">Ruggie</span><a class="url-link" href="https://ruggie.co/" target="_blank">ruggie.co →</a></div>
+  </div>
+</div>
+</div>
+
+<!-- ============ 06 · SCHEDULE INTRO ============ -->
+<div class="slide pink-bg" data-label="Schedule">
+<div class="slide-inner">
+  <div class="eyebrow" style="color:#fff;opacity:0.85">3 DAYS · BUILD · SHIP · MEASURE</div>
+  <div class="huge" style="color:#fff;font-size:clamp(64px,11vw,144px);letter-spacing:-3px;line-height:0.95">The<br>Schedule.</div>
+  <div class="big" style="font-family:'Newsreader',Georgia,serif;font-style:italic;font-weight:400;color:#fff;margin-top:32px;font-size:clamp(22px,3vw,34px);letter-spacing:-0.5px;line-height:1.3">Thursday · Friday · Saturday.<br>Workshop, lunch, ship, dinner. Repeat.</div>
+</div>
+</div>
+
+<!-- ============ 07 · THURSDAY ============ -->
+<div class="slide navy-bg" data-label="Thursday">
+<div class="slide-inner">
+  <div class="sched-card">
+    <div class="sched-day-label">DAY 2</div>
+    <div class="sched-date">Thursday, May 14</div>
+    <div class="sched-venue"><em>Soho House</em> <span class="rest">Workshop &amp; Dinner at Dong Kee</span></div>
+    <div class="sched-divider"></div>
+    <ul class="sched-rows">
+      <li><span class="time">10:00 AM</span><span class="what">Venue opens · Coffee/Tea at Soho House</span></li>
+      <li><span class="time">10:15 AM</span><span class="what">Soho House Workshop begins</span></li>
+      <li class="sub"><span class="time">10:15–10:45</span><span class="what">Ice breaker</span></li>
+      <li class="sub"><span class="time">10:45–11:00</span><span class="what">CEO talk · Rahul</span></li>
+      <li class="sub"><span class="time">11:00–12:30</span><span class="what">Session</span></li>
+      <li><span class="time">12:30 PM</span><span class="what">Team lunch at Soho House</span></li>
+      <li class="sub"><span class="time">12:30–5:00</span><span class="what">Assets ready</span></li>
+      <li class="sub"><span class="time">5:00–6:00</span><span class="what">Assets review &amp; ads upload</span></li>
+      <li><span class="time">7:00 PM</span><span class="what">Dinner at Dong Kee</span></li>
+      <li><span class="time">9:00 PM</span><span class="what">Dinner ends · Return to iClub Sheung Wan</span></li>
+    </ul>
+  </div>
+</div>
+</div>
+
+<!-- ============ 08 · FRIDAY ============ -->
+<div class="slide navy-bg" data-label="Friday">
+<div class="slide-inner">
+  <div class="sched-card">
+    <div class="sched-day-label">DAY 3 · MEASURE</div>
+    <div class="sched-date">Friday, May 15</div>
+    <div class="sched-venue"><em>Soho House</em> <span class="rest">Workshop &amp; Harbour Cruise</span></div>
+    <div class="sched-divider"></div>
+    <ul class="sched-rows">
+      <li><span class="time">10:00 AM</span><span class="what">Venue opens · Coffee/Tea at Soho House</span></li>
+      <li><span class="time">10:15 AM</span><span class="what">Soho House Workshop begins</span></li>
+      <li class="sub"><span class="time">10:15–1:00</span><span class="what">Analyzing &amp; optimization</span></li>
+      <li><span class="time">1:00 PM</span><span class="what">Team lunch at Soho House</span></li>
+      <li class="sub"><span class="time">1:00–3:00</span><span class="what">Changes ready &amp; asset review</span></li>
+      <li class="sub"><span class="time">3:00–3:30</span><span class="what">Asset push</span></li>
+      <li><span class="time">4:00 PM</span><span class="what">Workshop ends</span></li>
+      <li><span class="time">4:30 PM</span><span class="what">Victoria Harbour Cruise begins (Central Pier 10)</span></li>
+      <li><span class="time">8:30 PM</span><span class="what">Cruise ends · Return to iClub Sheung Wan</span></li>
+    </ul>
+  </div>
+</div>
+</div>
+
+<!-- ============ 09 · SATURDAY ============ -->
+<div class="slide navy-bg" data-label="Saturday">
+<div class="slide-inner">
+  <div class="sched-card">
+    <div class="sched-day-label">DAY 4 · CELEBRATE</div>
+    <div class="sched-date">Saturday, May 16</div>
+    <div class="sched-venue"><em>Soho House</em> <span class="rest">Workshop &amp; Dinner at Madame Fù</span></div>
+    <div class="sched-divider"></div>
+    <ul class="sched-rows">
+      <li><span class="time">10:00 AM</span><span class="what">Venue opens · Coffee/Tea at Soho House</span></li>
+      <li><span class="time">10:15 AM</span><span class="what">Soho House Workshop begins</span></li>
+      <li class="sub"><span class="time">10:15–1:00</span><span class="what">Optimization &amp; new assets ready</span></li>
+      <li><span class="time">1:00 PM</span><span class="what">Team lunch at Soho House</span></li>
+      <li class="sub"><span class="time">1:00–4:00</span><span class="what">Small tweaks · help other team members · last asset push by 4 PM</span></li>
+      <li class="sub"><span class="time">4:00–6:30</span><span class="what">Evaluation session — last 24 hours of data &amp; celebrating</span></li>
+      <li><span class="time">6:30 PM</span><span class="what">Dinner at Madame Fù (Tai Kwun)</span></li>
+      <li><span class="time">9:00 PM</span><span class="what">Dinner ends · Return to iClub Sheung Wan</span></li>
+    </ul>
+  </div>
+</div>
+</div>
+
+</div><!-- end .deck -->
+
+<nav class="nav">
+  <button class="nav-btn" onclick="prev()" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M15 18l-6-6 6-6"/></svg></button>
+  <div class="progress">
+    <div class="counter"><span id="current">01</span> / <span id="total">09</span></div>
+    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="section-label" id="sectionLabel">Care & Bloom</div>
+  </div>
+  <button class="nav-btn" onclick="next()" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M9 18l6-6-6-6"/></svg></button>
+</nav>
+
+<script>
+const slides=document.querySelectorAll('.slide');
+const total=slides.length;
+let idx=0;
+document.getElementById('total').textContent=String(total).padStart(2,'0');
+
+function go(n){
+  slides[idx].classList.remove('active');
+  slides[idx].querySelectorAll('.slide-inner > *').forEach(el=>{el.style.animation='none';el.offsetHeight;el.style.animation=''});
+  idx=((n%total)+total)%total;
+  slides[idx].classList.add('active');
+  document.getElementById('current').textContent=String(idx+1).padStart(2,'0');
+  document.getElementById('progressFill').style.width=((idx+1)/total*100)+'%';
+  document.getElementById('sectionLabel').textContent=slides[idx].dataset.label||'';
+  history.replaceState(null,'','#'+(idx+1));
+}
+
+function goFromHash(){
+  const h=parseInt(location.hash.replace('#',''),10);
+  if(!isNaN(h) && h>=1 && h<=total) go(h-1);
+}
+const initialHash=parseInt(location.hash.replace('#',''),10);
+if(!isNaN(initialHash) && initialHash>=1 && initialHash<=total){
+  go(initialHash-1);
+} else {
+  document.getElementById('progressFill').style.width=(1/total*100)+'%';
+}
+window.addEventListener('hashchange',goFromHash);
+
+function next(){go(idx+1)}
+function prev(){go(idx-1)}
+
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight'||e.key===' ')next();
+  if(e.key==='ArrowLeft')prev();
+  if(e.key==='ArrowDown')next();
+  if(e.key==='ArrowUp')prev();
+});
+
+let tx=0;
+document.addEventListener('touchstart',e=>{tx=e.touches[0].clientX},{passive:true});
+document.addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>50){d<0?next():prev()}},{passive:true});
+</script>
+</body>
+</html>
