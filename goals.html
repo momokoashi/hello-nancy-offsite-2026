@@ -109,6 +109,13 @@ html,body{height:100%;overflow:hidden;background:var(--cream);color:var(--text);
 .sched-rows li.sub .time{color:rgba(255,107,157,0.7);font-size:10px}
 .sched-rows .what{font-size:15.5px;color:#F5E9D6;line-height:1.5}
 .sched-rows li.sub .what{font-size:13.5px;color:rgba(245,233,214,0.78);padding-left:14px;border-left:2px solid rgba(255,107,157,0.35)}
+.img-frame{background:rgba(255,42,142,0.04);border:2px dashed rgba(255,42,142,0.3);border-radius:8px;padding:0;min-height:240px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;overflow:hidden;position:relative}
+.img-frame img{max-width:100%;display:block;border-radius:6px}
+.img-frame .img-fallback{padding:24px;text-align:center}
+.img-frame .img-icon{width:32px;height:32px;border-radius:50%;background:var(--pink-soft);display:inline-flex;align-items:center;justify-content:center;color:var(--pink);font-weight:900;font-size:16px;margin-bottom:6px}
+.img-frame .img-label{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-weight:800;color:var(--pink);margin-bottom:4px}
+.img-frame .img-desc{font-size:12px;color:var(--dim);line-height:1.45;max-width:200px}
+.img-frame code{background:rgba(255,42,142,0.08);padding:1px 6px;border-radius:3px;font-family:'SF Mono',Menlo,Consolas,monospace;font-size:10.5px;color:var(--pink-deep);word-break:break-all}
 @media(max-width:900px){
   .slide{padding:32px 22px;padding-bottom:80px;align-items:flex-start;padding-top:50px}
   .mission-grid{grid-template-columns:repeat(2,1fr)}
@@ -285,38 +292,45 @@ html,body{height:100%;overflow:hidden;background:var(--cream);color:var(--text);
 </div>
 </div>
 
-<!-- ============ 09 · WHAT MAKES AN AD WORK ============ -->
-<div class="slide cream-bg" data-label="Weak vs Strong Copy">
+<!-- ============ 09 · DIFFERENT CREATIVES THAT WORK ============ -->
+<div class="slide cream-bg" data-label="Creative Styles">
 <div class="slide-inner">
-  <div class="eyebrow">ANATOMY OF AN AD · COPY EXAMPLES</div>
-  <div class="huge" style="font-size:clamp(32px,5vw,60px);letter-spacing:-2px;line-height:1.05">Same product. <span style="color:#C8973A">Weak copy</span> vs <span style="color:#7A8F1A">strong copy.</span></div>
-  <div class="body" style="margin-top:14px;max-width:920px">Weak copy describes the product. Strong copy puts the reader in a moment they recognize. Five of each below — note the pattern.</div>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:24px">
-    <div style="background:#fff;padding:20px 22px;border-radius:8px;border-top:6px solid #C8973A">
-      <div style="font-size:11px;letter-spacing:2.5px;font-weight:800;color:#C8973A;text-transform:uppercase">5 · Weak copy</div>
-      <ol style="list-style:decimal;margin-top:12px;padding-left:18px">
-        <li style="font-size:13.5px;line-height:1.45;color:var(--text);font-style:italic;margin-bottom:8px">"Introducing the Lem — our premium clitoral massager. High-quality silicone."</li>
-        <li style="font-size:13.5px;line-height:1.45;color:var(--text);font-style:italic;margin-bottom:8px">"12 unique intensities. Medical-grade silicone. Waterproof. Shop now."</li>
-        <li style="font-size:13.5px;line-height:1.45;color:var(--text);font-style:italic;margin-bottom:8px">"Get 25% off with code LEM25. Limited time only."</li>
-        <li style="font-size:13.5px;line-height:1.45;color:var(--text);font-style:italic;margin-bottom:8px">"Designed for women, by women. Discover the difference."</li>
-        <li style="font-size:13.5px;line-height:1.45;color:var(--text);font-style:italic">"The best clitoral massager on the market. Click to learn more."</li>
-      </ol>
-      <div style="font-size:11px;color:var(--dim);margin-top:12px;line-height:1.5;border-top:1px solid rgba(0,0,0,0.08);padding-top:10px"><strong style="color:#C8973A">Why weak:</strong> spec sheets, not stories. Could be any brand. No specific person feels seen.</div>
+  <div class="eyebrow">ANATOMY OF AN AD · CREATIVE STYLES</div>
+  <div class="huge" style="font-size:clamp(34px,5.5vw,66px);letter-spacing:-2px;line-height:1.05">Same product. <span style="color:var(--pink)">Different ads.</span> All work.</div>
+  <div class="body" style="margin-top:14px;max-width:920px">There is no <em>one</em> winning format. Static, reel, talking head — all three convert when the angle is right. Test multiple styles in parallel, scale what wins.</div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px">
+    <div>
+      <div style="background:var(--pink);color:#fff;padding:10px 12px;border-radius:6px;font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;text-align:center">Style 1 · Static</div>
+      <div class="img-frame" style="margin-top:8px">
+        <img src="screenshots/creative-1-static.png" alt="Static ad — We're Sorry / Who Needs Partner With This Fruit" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="img-fallback" style="display:none;flex-direction:column"><div class="img-icon">▶</div><div class="img-label">Static screenshot</div><div class="img-desc">Save the "We're Sorry / Who Needs Partner With This Fruit" ad as <code>screenshots/creative-1-static.png</code></div></div>
+      </div>
+      <div style="font-size:12.5px;color:var(--text);margin-top:10px;line-height:1.5"><strong>Scroll-stopper.</strong> Bold image + punchy headline. Cheap to produce, fast to iterate, great for testing angles.</div>
     </div>
-    <div style="background:#fff;padding:20px 22px;border-radius:8px;border-top:6px solid var(--chartreuse)">
-      <div style="font-size:11px;letter-spacing:2.5px;font-weight:800;color:#7A8F1A;text-transform:uppercase">5 · Strong copy</div>
-      <ol style="list-style:decimal;margin-top:12px;padding-left:18px">
-        <li style="font-size:13.5px;line-height:1.45;color:var(--text);font-style:italic;margin-bottom:8px">"I'm 52. My partner left. I hadn't felt anything in 8 years. Then I bought this lemon."</li>
-        <li style="font-size:13.5px;line-height:1.45;color:var(--text);font-style:italic;margin-bottom:8px">"He said 'I'm tired' for the third time this month. So I bought myself the Lem."</li>
-        <li style="font-size:13.5px;line-height:1.45;color:var(--text);font-style:italic;margin-bottom:8px">"Most of these look like a weapon. This one looks like fruit in my bowl."</li>
-        <li style="font-size:13.5px;line-height:1.45;color:var(--text);font-style:italic;margin-bottom:8px">"Started with 'I'll try it once.' Now I hide it before my mom visits."</li>
-        <li style="font-size:13.5px;line-height:1.45;color:var(--text);font-style:italic">"47 women in my group chat told me to stop being shy and buy it. They were right."</li>
-      </ol>
-      <div style="font-size:11px;color:var(--dim);margin-top:12px;line-height:1.5;border-top:1px solid rgba(0,0,0,0.08);padding-top:10px"><strong style="color:#7A8F1A">Why strong:</strong> specific situation, specific person, real tension, pattern interrupt. The reader sees themselves.</div>
+    <div>
+      <div style="background:var(--pink);color:#fff;padding:10px 12px;border-radius:6px;font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;text-align:center">Style 2 · POV Reel</div>
+      <div class="img-frame" style="margin-top:8px">
+        <img src="screenshots/creative-2-pov.png" alt="POV reel — You get a Lemon as a joke gift" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="img-fallback" style="display:none;flex-direction:column"><div class="img-icon">▶</div><div class="img-label">POV reel screenshot</div><div class="img-desc">Save the "POV: You get a Lemon as a joke gift" reel as <code>screenshots/creative-2-pov.png</code></div></div>
+      </div>
+      <div style="font-size:12.5px;color:var(--text);margin-top:10px;line-height:1.5"><strong>Story format.</strong> Text overlay on b-roll. Native to social. The hook is the first three words.</div>
+    </div>
+    <div>
+      <div style="background:var(--pink);color:#fff;padding:10px 12px;border-radius:6px;font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;text-align:center">Style 3 · Talking Head</div>
+      <div class="img-frame" style="margin-top:8px">
+        <img src="screenshots/creative-3-talking.png" alt="Talking head UGC — creator showing product" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="img-fallback" style="display:none;flex-direction:column"><div class="img-icon">▶</div><div class="img-label">Talking head screenshot</div><div class="img-desc">Save the creator video ("you can do it in the shower") as <code>screenshots/creative-3-talking.png</code></div></div>
+      </div>
+      <div style="font-size:12.5px;color:var(--text);margin-top:10px;line-height:1.5"><strong>Trust builder.</strong> Creator shows the product on camera. Higher trust, demo-feel, best for sensitive categories.</div>
     </div>
   </div>
   <div class="pink-stripe-box" style="margin-top:22px">
-    <div class="body" style="margin-top:0;font-size:15px"><strong>Use Gemini to generate 5+ new angles per day.</strong> Cheap to test, cheap to kill. Keep what works, scale fast.</div>
+    <div class="medium" style="font-size:20px;line-height:1.3">How to scale: produce, test, kill, double down.</div>
+    <ul class="simple-list" style="margin-top:6px">
+      <li>Ship <strong>3-5 creatives per day</strong> across all 3 styles — use Gemini for static, Remo for video.</li>
+      <li>Watch Day 1-2 signal: CTR, thumb-stop, cost per click. Kill the bottom half fast.</li>
+      <li>Day 3: pour spend into the top 1-2 winners. That's your scaling moment.</li>
+    </ul>
   </div>
 </div>
 </div>
@@ -330,22 +344,34 @@ html,body{height:100%;overflow:hidden;background:var(--cream);color:var(--text);
   <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px;align-items:start">
     <div>
       <div style="background:var(--pink);color:#fff;padding:10px 12px;border-radius:6px;font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;text-align:center">Step 1 · Ad</div>
-      <div class="shot-slot has-img" style="margin-top:8px;padding:0;background:transparent;border:none"><img src="screenshots/journey-1-ad.png" alt="Meta ad for Lem" style="max-width:100%;border-radius:6px;border:1px solid rgba(0,0,0,0.1);display:block"></div>
+      <div class="img-frame" style="margin-top:8px">
+        <img src="screenshots/journey-1-ad.png" alt="Meta ad for Lem" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="img-fallback" style="display:none;flex-direction:column"><div class="img-icon">▶</div><div class="img-label">Meta ad screenshot</div><div class="img-desc">Save the "We're Sorry" Meta ad as <code>screenshots/journey-1-ad.png</code></div></div>
+      </div>
       <div style="font-size:12px;color:var(--text);margin-top:10px;line-height:1.45"><strong>Where you live.</strong> The hook, the image, the first line. Stop the scroll.</div>
     </div>
     <div>
       <div style="background:var(--pink);color:#fff;padding:10px 12px;border-radius:6px;font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;text-align:center">Step 2 · Bridge</div>
-      <div class="shot-slot has-img" style="margin-top:8px;padding:0;background:transparent;border:none"><img src="screenshots/journey-2-bridge.png" alt="Bridge page — sensitive products only" style="max-width:100%;border-radius:6px;border:1px solid rgba(0,0,0,0.1);display:block"></div>
+      <div class="img-frame" style="margin-top:8px">
+        <img src="screenshots/journey-2-bridge.png" alt="Bridge page — sensitive products only" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="img-fallback" style="display:none;flex-direction:column"><div class="img-icon">▶</div><div class="img-label">Bridge page screenshot</div><div class="img-desc">Save the "Zesty Side" bridge page as <code>screenshots/journey-2-bridge.png</code></div></div>
+      </div>
       <div style="font-size:12px;color:var(--text);margin-top:10px;line-height:1.45"><strong>Sensitive only.</strong> Soft warm-up before the product page. Builds trust, gets past Meta restrictions.</div>
     </div>
     <div>
       <div style="background:var(--pink);color:#fff;padding:10px 12px;border-radius:6px;font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;text-align:center">Step 3 · LP</div>
-      <div class="shot-slot has-img" style="margin-top:8px;padding:0;background:transparent;border:none"><img src="screenshots/journey-3-lp.png" alt="Listicle / advertorial landing page" style="max-width:100%;border-radius:6px;border:1px solid rgba(0,0,0,0.1);display:block"></div>
+      <div class="img-frame" style="margin-top:8px">
+        <img src="screenshots/journey-3-lp.png" alt="Listicle / advertorial landing page" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="img-fallback" style="display:none;flex-direction:column"><div class="img-icon">▶</div><div class="img-label">Listicle / advertorial screenshot</div><div class="img-desc">Save the "7 Suction Toys" listicle as <code>screenshots/journey-3-lp.png</code></div></div>
+      </div>
       <div style="font-size:12px;color:var(--text);margin-top:10px;line-height:1.45"><strong>Listicle, blog, advertorial.</strong> Tells the story, frames the product as the obvious answer. Optional — depends on the brand.</div>
     </div>
     <div>
       <div style="background:var(--pink);color:#fff;padding:10px 12px;border-radius:6px;font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;text-align:center">Step 4 · PDP</div>
-      <div class="shot-slot has-img" style="margin-top:8px;padding:0;background:transparent;border:none"><img src="screenshots/journey-4-pdp.png" alt="Product detail page — purchase" style="max-width:100%;border-radius:6px;border:1px solid rgba(0,0,0,0.1);display:block"></div>
+      <div class="img-frame" style="margin-top:8px">
+        <img src="screenshots/journey-4-pdp.png" alt="Product detail page — purchase" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="img-fallback" style="display:none;flex-direction:column"><div class="img-icon">▶</div><div class="img-label">PDP screenshot</div><div class="img-desc">Save the Lem product page as <code>screenshots/journey-4-pdp.png</code></div></div>
+      </div>
       <div style="font-size:12px;color:var(--text);margin-top:10px;line-height:1.45"><strong>The buy moment.</strong> Price, reviews, add to cart. Last chance to close.</div>
     </div>
   </div>
@@ -359,19 +385,29 @@ html,body{height:100%;overflow:hidden;background:var(--cream);color:var(--text);
 <div class="slide cream-bg" data-label="Audience">
 <div class="slide-inner">
   <div class="eyebrow">WHO ARE YOU SELLING TO?</div>
-  <div class="huge" style="font-size:clamp(40px,6vw,76px);letter-spacing:-2px;line-height:1.05">Specific beats broad. <span style="color:var(--pink)">Always.</span></div>
-  <div class="body" style="margin-top:18px">"Women 25-65" is not a target. It's a population. You need a <strong>person</strong> — someone with a specific situation, a specific pain, a specific reason to buy <em>today</em>.</div>
-  <div style="background:#fff;padding:28px 32px;border-radius:10px;margin-top:28px;border-left:6px solid var(--pink)">
-    <div style="font-size:12px;letter-spacing:2.5px;font-weight:800;color:var(--pink);text-transform:uppercase">Example · Hello Nancy LEM</div>
-    <div class="medium" style="font-size:22px;margin-top:6px">Same product. Four very different angles.</div>
-    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:18px">
-      <div style="padding:14px 18px;background:var(--pink-soft);border-radius:6px"><div style="font-size:13px;font-weight:900;color:var(--pink-deep)">Menopausal women</div><div style="font-size:12.5px;color:var(--text);margin-top:4px;line-height:1.4">Hormones shifted. Body changed. Wants something that works with the new normal.</div></div>
-      <div style="padding:14px 18px;background:var(--pink-soft);border-radius:6px"><div style="font-size:13px;font-weight:900;color:var(--pink-deep)">First-timers</div><div style="font-size:12.5px;color:var(--text);margin-top:4px;line-height:1.4">Never used a toy. Curious but doesn't know where to start. Needs to be told it's normal and beginner-friendly.</div></div>
-      <div style="padding:14px 18px;background:var(--pink-soft);border-radius:6px"><div style="font-size:13px;font-weight:900;color:var(--pink-deep)">The shy buyer</div><div style="font-size:12.5px;color:var(--text);margin-top:4px;line-height:1.4">Wants it. Embarrassed to want it. Needs discreet packaging, simple checkout, no shame in the ad.</div></div>
-      <div style="padding:14px 18px;background:var(--pink-soft);border-radius:6px"><div style="font-size:13px;font-weight:900;color:var(--pink-deep)">The awkward gifter</div><div style="font-size:12.5px;color:var(--text);margin-top:4px;line-height:1.4">Birthday, anniversary, Mother's Day. Wants to give it but doesn't know how to frame it. Make it easy to say "I bought you this and here's why."</div></div>
+  <div class="huge" style="font-size:clamp(36px,5.8vw,72px);letter-spacing:-2px;line-height:1.05">Specific beats broad. <span style="color:var(--pink)">Always.</span></div>
+  <div class="body" style="margin-top:14px;max-width:920px">"Women 25-65" is not a target. It's a population. You need a <strong>person</strong> — someone with a specific situation, a specific pain, a specific reason to buy <em>today</em>.</div>
+
+  <div style="margin-top:24px">
+    <div style="font-size:12px;letter-spacing:2.5px;font-weight:800;color:var(--pink);text-transform:uppercase;margin-bottom:12px">How to find that person — 4 places to look</div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px">
+      <div style="background:#fff;padding:18px 16px;border-radius:8px;border-top:5px solid var(--pink)"><div style="font-size:11px;letter-spacing:2px;font-weight:800;color:var(--pink);text-transform:uppercase">01</div><div style="font-size:15px;font-weight:900;margin-top:6px;letter-spacing:-0.3px">Check your reviews</div><div style="font-size:12.5px;color:var(--text);margin-top:6px;line-height:1.45">Read every 5-star review. The phrases customers use to describe their problem = your ad copy. Free, real, written by the buyer.</div></div>
+      <div style="background:#fff;padding:18px 16px;border-radius:8px;border-top:5px solid var(--pink)"><div style="font-size:11px;letter-spacing:2px;font-weight:800;color:var(--pink);text-transform:uppercase">02</div><div style="font-size:15px;font-weight:900;margin-top:6px;letter-spacing:-0.3px">Check Reddit</div><div style="font-size:12.5px;color:var(--text);margin-top:6px;line-height:1.45">Search the category on Reddit. Read threads where real people complain or ask for recs. Their language is gold — copy it directly.</div></div>
+      <div style="background:#fff;padding:18px 16px;border-radius:8px;border-top:5px solid var(--pink)"><div style="font-size:11px;letter-spacing:2px;font-weight:800;color:var(--pink);text-transform:uppercase">03</div><div style="font-size:15px;font-weight:900;margin-top:6px;letter-spacing:-0.3px">Check competitor sites</div><div style="font-size:12.5px;color:var(--text);margin-top:6px;line-height:1.45">Their product pages, reviews, ad library. See who they target, what angle works. Steal what works, skip what doesn't.</div></div>
+      <div style="background:var(--chartreuse);color:var(--black);padding:18px 16px;border-radius:8px"><div style="font-size:11px;letter-spacing:2px;font-weight:800;color:#5A6A10;text-transform:uppercase">04</div><div style="font-size:15px;font-weight:900;margin-top:6px;letter-spacing:-0.3px">Look below ↓</div><div style="font-size:12.5px;color:var(--text);margin-top:6px;line-height:1.45">Worked example for Lem — 4 specific people, all the same product. Use this template for your brand.</div></div>
     </div>
   </div>
-  <div class="body" style="margin-top:20px;font-size:15px">Test all four. Kill what doesn't work in 48 hours. Pour spend into what does.</div>
+
+  <div style="background:#fff;padding:22px 28px;border-radius:10px;margin-top:24px;border-left:6px solid var(--pink)">
+    <div style="font-size:12px;letter-spacing:2.5px;font-weight:800;color:var(--pink);text-transform:uppercase">Example · Hello Nancy LEM</div>
+    <div class="medium" style="font-size:20px;margin-top:6px">Same product. Four very different people.</div>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:14px">
+      <div style="padding:12px 16px;background:var(--pink-soft);border-radius:6px"><div style="font-size:13px;font-weight:900;color:var(--pink-deep)">Menopausal women</div><div style="font-size:12px;color:var(--text);margin-top:3px;line-height:1.4">Hormones shifted. Body changed. Wants something that works with the new normal.</div></div>
+      <div style="padding:12px 16px;background:var(--pink-soft);border-radius:6px"><div style="font-size:13px;font-weight:900;color:var(--pink-deep)">First-timers</div><div style="font-size:12px;color:var(--text);margin-top:3px;line-height:1.4">Never used a toy. Curious but doesn't know where to start. Needs to be told it's normal.</div></div>
+      <div style="padding:12px 16px;background:var(--pink-soft);border-radius:6px"><div style="font-size:13px;font-weight:900;color:var(--pink-deep)">The shy buyer</div><div style="font-size:12px;color:var(--text);margin-top:3px;line-height:1.4">Wants it. Embarrassed to want it. Needs discreet packaging, no shame in the ad.</div></div>
+      <div style="padding:12px 16px;background:var(--pink-soft);border-radius:6px"><div style="font-size:13px;font-weight:900;color:var(--pink-deep)">The awkward gifter</div><div style="font-size:12px;color:var(--text);margin-top:3px;line-height:1.4">Mother's Day, anniversary, birthday. Wants to give it but doesn't know how to frame it.</div></div>
+    </div>
+  </div>
 </div>
 </div>
 
